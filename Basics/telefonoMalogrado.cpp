@@ -8,7 +8,15 @@ int s() {
     int suspects = 0;
     for(int i = 0; i < (numbers.size()-1); i++) {
         if(int(numbers[i]) != int(numbers[i+1])) {
-            suspects += 2;
+            if(i != 0){
+                if(int(numbers[i]) != int(numbers[i-1])){
+                    suspects += 1;
+                }else{
+                    suspects += 2;
+                }
+            }else{
+                suspects += 2;
+            }
         }
     }
     return suspects;
