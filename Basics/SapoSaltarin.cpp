@@ -1,28 +1,31 @@
 #include <iostream>
-#include <string>
 
 using namespace std;
 
 int main()
 {
-  int saltos, distancia;
+  int saltos, distancia, contador;
   
   cout << "Ingrese la distancia a recorrer: ";
   cin >> distancia;
   
-  distancia -= 1;
-  saltos += 1;
-  
-  while(distancia > 0){
-    if(distancia - 9 >= 9)
-    {
-        distancia -= 9;
-        saltos += 1;
-    }else{
-        saltos += 1;
-        distancia = 0;
+  if(distancia > 0){
+    distancia -= 1;
+    saltos += 1;
+    
+    contador = 1;
+    
+    while(distancia > 0){
+        if(distancia >= 9){
+            distancia -= contador * 9;
+            saltos += 1;
+        }else{
+            distancia = 0;
+            saltos += 1;
+        }
+        contador += 1;
     }
+    
+    cout << "La cantidad de saltos necesarios es: " << saltos;
   }
-  
-  cout << "La cantidad de saltos necesarios es: " << saltos;
 }
